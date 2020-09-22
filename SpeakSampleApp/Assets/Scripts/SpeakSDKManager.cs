@@ -152,7 +152,7 @@ public class SpeakSDKManager : MonoBehaviour
     private void InitializeSpeakSDK()
     {
         Speak.Instance().SetURL("wss://spf-v2.sebastien.ai/talk");
-        Speak.Instance().SetDeviceToken("811645a6-121e-47e9-bcd8-c69729c99df1");
+        Speak.Instance().SetDeviceToken("6f27ca9e-bc2a-4880-b806-c91f57f8caa4");
 
         // Callback.
         Speak.Instance().SetOnTextOut(OnTextOut);
