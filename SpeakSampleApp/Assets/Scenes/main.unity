@@ -123,6 +123,33 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &33611186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1368777054100121216, guid: 667cc75e4fc2ee84282e5778bf254e9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1168996295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &33611188 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2914914103673650956, guid: 667cc75e4fc2ee84282e5778bf254e9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1168996295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &33611189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33611186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3358168283f3424489bb547de8e384f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skinnedMeshRenderer: {fileID: 33611188}
+  _index: 4
+  _gain: 3500
 --- !u!1 &54305912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,6 +2117,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Randomchan
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 667cc75e4fc2ee84282e5778bf254e9a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914914103673650956, guid: 667cc75e4fc2ee84282e5778bf254e9a,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914914103673650956, guid: 667cc75e4fc2ee84282e5778bf254e9a,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914914103673650956, guid: 667cc75e4fc2ee84282e5778bf254e9a,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914914103673650956, guid: 667cc75e4fc2ee84282e5778bf254e9a,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914914103673650956, guid: 667cc75e4fc2ee84282e5778bf254e9a,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914914103673650956, guid: 667cc75e4fc2ee84282e5778bf254e9a,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[8]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 667cc75e4fc2ee84282e5778bf254e9a, type: 3}
