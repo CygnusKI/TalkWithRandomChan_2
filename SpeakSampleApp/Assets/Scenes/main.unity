@@ -346,6 +346,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1168996295}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &104263491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104263486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fae87ab8698d09408407443b3768d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  face_SkinnedMeshRenderer: {fileID: 33611188}
+  eyeClose_KeyNomber: 2
+  countTime: 0
+  blinkTriggerTime: 5
 --- !u!1 &196405087
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,6 +2169,11 @@ PrefabInstance:
       propertyPath: m_BlendShapeWeights.Array.data[8]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2914914103673650956, guid: 667cc75e4fc2ee84282e5778bf254e9a,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 667cc75e4fc2ee84282e5778bf254e9a, type: 3}
 --- !u!1 &1187814158
@@ -2239,7 +2260,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1187814163}
-        m_TargetAssemblyTypeName: aaa, Assembly-CSharp
+        m_TargetAssemblyTypeName: bbb, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -2297,12 +2318,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1187814158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8958ec62e788d484b8527aac13d05635, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fd857911484cca4eb9863c1aa4b592f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   query: 
   text: {fileID: 282222247}
   inputField: {fileID: 256366367}
+  dic: []
 --- !u!1 &1259892669
 GameObject:
   m_ObjectHideFlags: 0
