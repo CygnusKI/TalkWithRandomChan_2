@@ -172,7 +172,7 @@ public class bbb : MonoBehaviour
     private void InitializeSpeakSDK()
     {
         Speak.Instance().SetURL("wss://hostname.domain:443/path");
-        Speak.Instance().SetDeviceToken("1ff910ed-8a4a-4d8d-9525-2514d02cc9b5");
+        Speak.Instance().SetDeviceToken("44bed00e-25ef-4d71-9ded-d1aa9b7c1d73");
 
         // Callback.
         Speak.Instance().SetOnTextOut(OnTextOut);
