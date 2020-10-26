@@ -77,6 +77,7 @@ public class SpeakSDKManager : MonoBehaviour
         }
         #endif
 
+        //Speak.Instance().Mute();
         // AudioSourceコンポーネントの取得
         mAudioSource = gameObject.GetComponent<AudioSource>();
 
@@ -152,12 +153,14 @@ public class SpeakSDKManager : MonoBehaviour
     private void InitializeSpeakSDK()
     {
         Speak.Instance().SetURL("wss://spf-v2.sebastien.ai/talk");
-        Speak.Instance().SetDeviceToken("6f27ca9e-bc2a-4880-b806-c91f57f8caa4");
+        Speak.Instance().SetDeviceToken("14d1d3f4-6de1-429c-92f7-b614d02503ce");
 
         // Callback.
         Speak.Instance().SetOnTextOut(OnTextOut);
         Speak.Instance().SetOnMetaOut(OnMetaOut);
         Speak.Instance().SetOnPlayEnd(OnPlayEnd);
+
+        //Speak.Instance().SetMicMute(true);
 
         // AudioSource
         Speak.Instance().SetAudioSource(mAudioSource);
@@ -258,13 +261,13 @@ public class SpeakSDKManager : MonoBehaviour
         if (!String.IsNullOrEmpty(metaData.systemText.utterance))
         {
             // スクロールビューにテキストを表示する
-            LogView(metaData.systemText.utterance);
+            //LogView(metaData.systemText.utterance);
         }
         // 再生テキスト取得失敗時の表示内容
         else if (!String.IsNullOrEmpty(metaData.systemText.expression))
         {
             // スクロールビューにテキストを表示する
-            LogView(metaData.systemText.expression);
+            //LogView(metaData.systemText.expression);
         }
 
         if (metaData.type == "speech_recognition_result")
@@ -299,7 +302,7 @@ public class SpeakSDKManager : MonoBehaviour
         viewText = MetaFindVoiceText(speechMetaData);
         if (!String.IsNullOrEmpty(viewText))
         {
-            LogView(viewText);
+            //LogView(viewText);
         }
     }
 

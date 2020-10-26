@@ -47,25 +47,25 @@ public class TalkButton : MonoBehaviour
     private string mLogs = "";
     private string mOldLogs = "";
 
-    // 選択状態の色
-    private Color mOnColor;
-    // 未選択状態の色
-    private Color mOffColor;
-
-
     // 自動停止
     private static readonly float TIMEOUT = 10.000f;//10000/ms
     private int mDialogCounter  = 0;
     private SynchronizationContext mContext;
 
+    //TalkAPIの設定
     string url = "https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk";
     string apikey = "DZZzWnCYOGHjsfahjCE4YrvM0GnAUlS3";
     public string query = "";
+    public string reply = "";
     public Text text;
     public InputField inputField;
+    public AudioSource mmAudioSource;
 
     public List<string> dic = new List<string>();
     bool has_dic = false;
+
+    //0はユーザー、1はらんだむちゃん、2はシステム
+    int talker;
 
     public void Start()
     {
@@ -81,16 +81,15 @@ public class TalkButton : MonoBehaviour
         }
         #endif
 
+        mmAudioSource = gameObject.GetComponent<AudioSource>();
+        //Speak.Instance().Mute();
+
         //Speakの初期化
         InitializeSpeakSDK();
 
         //UIの取得
         mScrollRect = GameObject.Find("ScrollView").GetComponent<ScrollRect>();
         mTextLog = mScrollRect.content.GetComponentInChildren<Text>();
-
-        // ボタンの色を定義
-        ColorUtility.TryParseHtmlString("#98FB98",out mOnColor);
-        ColorUtility.TryParseHtmlString("#DCDCDC",out mOffColor);
 
         //コンテキストの取得
         mContext = SynchronizationContext.Current;
@@ -136,12 +135,19 @@ public class TalkButton : MonoBehaviour
     private void InitializeSpeakSDK()
     {
         Speak.Instance().SetURL("wss://hostname.domain:443/path");
-        Speak.Instance().SetDeviceToken("1ff910ed-8a4a-4d8d-9525-2514d02cc9b5");
+        //Speak.Instance().SetDeviceToken("1ff910ed-8a4a-4d8d-9525-2514d02cc9b5");
+        Speak.Instance().SetDeviceToken("14d1d3f4-6de1-429c-92f7-b614d02503ce");
 
         // Callback.
         Speak.Instance().SetOnTextOut(OnTextOut);
         Speak.Instance().SetOnMetaOut(OnMetaOut);
         Speak.Instance().SetOnPlayEnd(OnPlayEnd);
+
+        //音声入力、マイクミュート状態へ
+        //Speak.Instance().SetMicMute(true);
+
+        // AudioSource
+        Speak.Instance().SetAudioSource(mmAudioSource);
     }
 
     // ---------------------------------------------------------------------------- //
@@ -157,6 +163,8 @@ public class TalkButton : MonoBehaviour
     {
         // Speakの実行
         Speak.Instance().Start(OnStart, OnFailed);
+
+        text.text += "あなた　　　　\t" + inputField.text + "\n";
 
         has_dic = false;
 
@@ -178,7 +186,7 @@ public class TalkButton : MonoBehaviour
                 data.voiceText = mes;
 
                 Debug.Log(mes);
-                text.text = dic[i].Remove(0, num);
+                text.text += "らんだむちゃん\t" + dic[i].Remove(0, num) + "\n";
 
                 string json = JsonUtility.ToJson(data);
                 Speak.Instance().PutMeta(json);
@@ -186,7 +194,8 @@ public class TalkButton : MonoBehaviour
                 CancelInvoke("AutoStopTask");
                 Interlocked.Increment(ref mDialogCounter);
 
-                LogView(mes);
+                LogView(inputField.text, 0);
+                LogView(mes, 1);
                 inputField.text = "";
                 break;
             }
@@ -230,12 +239,15 @@ public class TalkButton : MonoBehaviour
                     // 取得したものをJsonで整形
                     string itemJson = request.downloadHandler.text;
                     JsonNode jsnode = JsonNode.Parse(itemJson);
+                    string reply = jsnode["results"][0]["reply"].Get<string>();
                     // Jsonから会話部分だけ抽出してTextに代入
                     if (text.text != null) {
-                        text.text = jsnode["results"][0]["reply"].Get<string>();
+                        text.text += "らんだむちゃん\t" + reply + "\n";
                     }
-                    Debug.Log(jsnode["results"][0]["reply"].Get<string>());
-                    data.voiceText = jsnode["results"][0]["reply"].Get<string>();
+                    Debug.Log(reply);
+                    LogView(inputField.text, 0);
+                    LogView(reply, 1);
+                    data.voiceText = reply;
                 }
                 catch (Exception e)
                 {
@@ -251,7 +263,8 @@ public class TalkButton : MonoBehaviour
         CancelInvoke("AutoStopTask");
         Interlocked.Increment(ref mDialogCounter);
 
-        LogView(query);
+        //LogView(inputField.text, 0);
+        //LogView(reply, 1);
         inputField.text = "";
     }
 
@@ -263,6 +276,7 @@ public class TalkButton : MonoBehaviour
     public void OnStart()
     {
         Invoke("AutoStopTask", TIMEOUT);
+        Debug.Log("OnStart on");
     }
 
     public void OnStop()
@@ -272,6 +286,10 @@ public class TalkButton : MonoBehaviour
 
     public void OnFailed(int ecode, string failstr)
     {
+        Debug.Log("OnFailed");
+        Debug.Log(ecode);
+        Debug.Log(failstr);
+
     }
 
     // ---------------------------------------------------------------------------- //
@@ -293,13 +311,13 @@ public class TalkButton : MonoBehaviour
         if (!String.IsNullOrEmpty(metaData.systemText.utterance))
         {
             // スクロールビューにテキストを表示する
-            LogView(metaData.systemText.utterance);
+            LogView(metaData.systemText.utterance, 2);
         }
         // 再生テキスト取得失敗時の表示内容
         else if (!String.IsNullOrEmpty(metaData.systemText.expression))
         {
             // スクロールビューにテキストを表示する
-            LogView(metaData.systemText.expression);
+            LogView(metaData.systemText.expression, 2);
         }
 
         if (metaData.type == "speech_recognition_result")
@@ -334,7 +352,7 @@ public class TalkButton : MonoBehaviour
         viewText = MetaFindVoiceText(speechMetaData);
         if (!String.IsNullOrEmpty(viewText))
         {
-            LogView(viewText);
+            LogView(viewText, 1);
         }
     }
 
@@ -361,10 +379,22 @@ public class TalkButton : MonoBehaviour
     // ---------------------------------------------------------------------------- //
     // ログを表示するメソッド
     // ---------------------------------------------------------------------------- //
-    private void LogView(string viewText)
+    private void LogView(string viewText, int talker)
     {
         if (!String.IsNullOrEmpty(viewText))
         {
+            if(talker == 0)
+            {
+                mLogs += "あなた　　　　\t";
+            }
+            else if(talker == 1)
+            {
+                mLogs += "らんだむちゃん\t";
+            }
+            else if(talker == 2)
+            {
+                mLogs += "システム\t\t";
+            }
             mLogs += viewText;
             mLogs +=  "\n";
         }
