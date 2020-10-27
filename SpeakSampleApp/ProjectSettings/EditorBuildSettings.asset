@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Input_dic.unity
     guid: 4104ecde629e74b47be70e30c0289af7
+  - enabled: 1
+    path: Assets/Scenes/Dictionary.unity
+    guid: 6a9394906ea74244ea08f2b26be6d9dd
   m_configObjects: {}

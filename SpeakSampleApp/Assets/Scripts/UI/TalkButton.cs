@@ -163,9 +163,7 @@ public class TalkButton : MonoBehaviour
     {
         // Speakの実行
         Speak.Instance().Start(OnStart, OnFailed);
-
         text.text += "あなた　　　　\t" + inputField.text + "\n";
-
         has_dic = false;
 
         for (int i = 0; i < dic.Count; i++)
@@ -187,7 +185,6 @@ public class TalkButton : MonoBehaviour
 
                 Debug.Log(mes);
                 text.text += "らんだむちゃん\t" + dic[i].Remove(0, num) + "\n";
-
                 string json = JsonUtility.ToJson(data);
                 Speak.Instance().PutMeta(json);
 
