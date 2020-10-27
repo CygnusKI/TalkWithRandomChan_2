@@ -7,6 +7,6 @@ public class ToDictionary : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene("DictionaryScene");
+        SceneManager.LoadScene("Dictionary");
     }
 }
