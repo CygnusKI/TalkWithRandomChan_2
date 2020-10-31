@@ -8,10 +8,13 @@ public class Dictionary : MonoBehaviour
 {
     // ログ表示欄
     public Text text;
+    private string path;
+    private string fileName = "dictionary.txt";
 
     void Start()
     {
-        StreamReader sr = new StreamReader("Assets/txt/dictionary.txt");
+        path = Application.dataPath + '/' + fileName;
+        StreamReader sr = new StreamReader(path);
         string line;
         while ((line = sr.ReadLine()) != null)
         {

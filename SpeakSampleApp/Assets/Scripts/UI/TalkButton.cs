@@ -63,13 +63,16 @@ public class TalkButton : MonoBehaviour
 
     public List<string> dic = new List<string>();
     bool has_dic = false;
+    private string path;
+    private string fileName = "dictionary.txt";
 
     //0はユーザー、1はらんだむちゃん、2はシステム
     int talker;
 
     public void Start()
     {
-        StreamReader sr = new StreamReader("Assets/txt/dictionary.txt");
+        path = Application.dataPath + '/' + fileName;
+        StreamReader sr = new StreamReader(path);
         string line;
         while ((line = sr.ReadLine()) != null) dic.Add(line);
 
