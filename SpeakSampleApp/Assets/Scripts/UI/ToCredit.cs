@@ -7,6 +7,6 @@ public class ToCredit : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene("CreditScene");
+        SceneManager.LoadScene("Credit");
     }
 }

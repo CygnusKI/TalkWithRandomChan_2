@@ -163,10 +163,48 @@ public class TalkButton : MonoBehaviour
     {
         // Speakの実行
         Speak.Instance().Start(OnStart, OnFailed);
-        text.text += "あなた　　　　\t" + inputField.text + "\n";
+        //text.text += "あなた　　　　\t" + inputField.text + "\n";
         has_dic = false;
+        if(inputField.text ==  ""){
 
-        for (int i = 0; i < dic.Count; i++)
+        }else{
+            text.text += "あなた　　　　\t" + inputField.text + "\n";
+            for (int i = 0; i < dic.Count; i++)
+            {
+                if (dic[i].Contains(inputField.text))
+                {
+                    NluMetaData data = new NluMetaData();
+                    data.clientData = new ClientData();
+                    data.clientData.deviceInfo = new DeviceInfo();
+                    data.clientData.deviceInfo.playTTS = "on";
+                    data.clientVer = "0.5.1";
+                    data.language = "ja-JP";
+
+                    has_dic = true;
+                    string target = "***";
+                    int num = dic[i].IndexOf(target) + 3;
+                    string mes = dic[i].Remove(0, num);
+                    data.voiceText = mes;
+
+                    Debug.Log(mes);
+                    text.text += "らんだむちゃん\t" + dic[i].Remove(0, num) + "\n";
+                    string json = JsonUtility.ToJson(data);
+                    Speak.Instance().PutMeta(json);
+
+                    CancelInvoke("AutoStopTask");
+                    Interlocked.Increment(ref mDialogCounter);
+
+                    //text.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+                    LogView(inputField.text, 0);
+                    LogView(mes, 1);
+                    inputField.text = "";
+                    break;
+                }
+            }
+
+            if (has_dic == false) StartCoroutine ("Conect");
+        }
+        /*for (int i = 0; i < dic.Count; i++)
         {
             if (dic[i].Contains(inputField.text))
             {
@@ -191,6 +229,7 @@ public class TalkButton : MonoBehaviour
                 CancelInvoke("AutoStopTask");
                 Interlocked.Increment(ref mDialogCounter);
 
+                //text.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
                 LogView(inputField.text, 0);
                 LogView(mes, 1);
                 inputField.text = "";
@@ -198,7 +237,7 @@ public class TalkButton : MonoBehaviour
             }
         }
 
-        if (has_dic == false) StartCoroutine ("Conect");
+        if (has_dic == false) StartCoroutine ("Conect");*/
     }
 
     IEnumerator Conect()
@@ -239,6 +278,7 @@ public class TalkButton : MonoBehaviour
                     string reply = jsnode["results"][0]["reply"].Get<string>();
                     // Jsonから会話部分だけ抽出してTextに代入
                     if (text.text != null) {
+                        //text.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
                         text.text += "らんだむちゃん\t" + reply + "\n";
                     }
                     Debug.Log(reply);
@@ -383,10 +423,12 @@ public class TalkButton : MonoBehaviour
             if(talker == 0)
             {
                 mLogs += "あなた　　　　\t";
+                Debug.Log("You");
             }
             else if(talker == 1)
             {
                 mLogs += "らんだむちゃん\t";
+                Debug.Log("らんだむちゃん");
             }
             else if(talker == 2)
             {
