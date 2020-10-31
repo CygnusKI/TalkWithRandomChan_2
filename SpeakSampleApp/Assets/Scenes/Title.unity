@@ -831,7 +831,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 667cc75e4fc2ee84282e5778bf254e9a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.114
+      value: -0.11399999
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 667cc75e4fc2ee84282e5778bf254e9a,
         type: 3}
@@ -881,17 +881,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 667cc75e4fc2ee84282e5778bf254e9a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.100000076
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 667cc75e4fc2ee84282e5778bf254e9a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.099999994
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 667cc75e4fc2ee84282e5778bf254e9a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.10000006
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 667cc75e4fc2ee84282e5778bf254e9a,
         type: 3}
@@ -961,7 +961,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 95532ee55fb122e448ca2f73bc917dcb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1438,8 +1438,8 @@ PrefabInstance:
     - target: {fileID: 1530464450737864014, guid: bb10ce6edd796ea49a487e990caec2d1,
         type: 3}
       propertyPath: m_Text
-      value: "\u3000\u3000\u3000\u3000\u3000\u3000---\u304F\u308C\u3058\u3063\u3068---\n\n\u4F7F\u7528API\uFF1A\u30C9\u30B3\u30E2Ai\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8API\n\u3000\u3000\u3000\u3000\u3000Recruit
-        Talk API\n\nBGM\u30FB\u52B9\u679C\u97F3\u7D20\u6750\uFF1ADOVA-SYNDROME\n\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u52B9\u679C\u97F3\u30E9\u30DC\n\n\u305D\u306E\u4ED6\uFF1A\u3089\u3093\u3060\u3080\u3061\u3083\u3093"
+      value: "\u3000\u3000\u3000\u3000\u3000\u3000---\u304F\u308C\u3058\u3063\u3068---\n\n\u30FB\u3089\u3093\u3060\u3080\u3061\u3083\u3093\n\n\u30FB\u4F7F\u7528API\uFF1A\u30C9\u30B3\u30E2Ai\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8API\n\u3000\u3000\u3000\u3000\u3000\u3000Recruit
+        Talk API\n\n\u30FBBGM\u30FB\u52B9\u679C\u97F3\u7D20\u6750\uFF1ADOVA-SYNDROME\n\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u52B9\u679C\u97F3\u30E9\u30DC\n"
       objectReference: {fileID: 0}
     - target: {fileID: 1530464450808539408, guid: bb10ce6edd796ea49a487e990caec2d1,
         type: 3}
@@ -1642,7 +1642,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 286437e59d1055d4a8020c4add47781b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1786,6 +1786,10 @@ PrefabInstance:
     - target: {fileID: 11486218, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
       propertyPath: m_Color.b
       value: 0.9811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 22333946, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22424616, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
       propertyPath: m_LocalPosition.x

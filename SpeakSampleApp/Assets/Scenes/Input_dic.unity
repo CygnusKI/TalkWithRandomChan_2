@@ -767,9 +767,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2e1427b3521d3b743a5fe437890a6f2f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2825,6 +2825,61 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1765129116}
     m_Modifications:
+    - target: {fileID: 1530464450525209784, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464450525209784, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464450525209784, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464450808539408, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464450808539408, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464451171718586, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464451171718586, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464451171718586, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464451171718586, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464451438184268, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464451438184268, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1530464451806709109, guid: bb10ce6edd796ea49a487e990caec2d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2934,6 +2989,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Scroll View
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464451806709110, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464451975988545, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530464451975988545, guid: bb10ce6edd796ea49a487e990caec2d1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb10ce6edd796ea49a487e990caec2d1, type: 3}

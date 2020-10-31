@@ -86,7 +86,7 @@ public class SpeakSDKManager : MonoBehaviour
 
         //UIの取得
         mInputField = GameObject.Find("InputField").GetComponent<InputField>(); 
-        mScrollRect = GameObject.Find("ScrollView").GetComponent<ScrollRect>();
+        mScrollRect = GameObject.Find("ScrollView_text").GetComponent<ScrollRect>();
         mTextLog = mScrollRect.content.GetComponentInChildren<Text>();
         mStartButton = GameObject.Find("SDKStartButton").GetComponent<Button>(); 
         mStopButton = GameObject.Find("SDKStopButton").GetComponent<Button>(); 

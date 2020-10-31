@@ -88,7 +88,7 @@ public class TalkButton : MonoBehaviour
         InitializeSpeakSDK();
 
         //UIの取得
-        mScrollRect = GameObject.Find("ScrollView").GetComponent<ScrollRect>();
+        mScrollRect = GameObject.Find("ScrollView_text").GetComponent<ScrollRect>();
         mTextLog = mScrollRect.content.GetComponentInChildren<Text>();
 
         //コンテキストの取得
